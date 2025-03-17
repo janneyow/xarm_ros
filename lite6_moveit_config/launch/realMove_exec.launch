@@ -1,6 +1,6 @@
 <launch>
 
-  <arg name="robot_ip" />
+  <arg name="robot_ip" default="192.168.1.190"/>
   <arg name="report_type" default="normal" />	
   <!-- load the default move_group planner (not xarm_simple_planner) -->
   <arg name="show_rviz" default="true" />
@@ -35,6 +35,8 @@
   <arg name="attach_xyz" default="'0 0 0'" />
   <arg name="attach_rpy" default="'0 0 0'" />
   <arg name="robot_sn" default="" />
+
+  <arg name="run_octomap" default="true"/>
 
   <!-- common: bring up node to enable real xArm control -->
   <include file="$(find xarm_bringup)/launch/lite6_server.launch">
@@ -92,6 +94,7 @@
     <arg name="attach_xyz" value="$(arg attach_xyz)"/>
     <arg name="attach_rpy" value="$(arg attach_rpy)"/>
     <arg name="robot_sn" value="$(arg robot_sn)"/>
+    <arg name="run_octomap" value="$(arg run_octomap)"/>
   </include>
 
 </launch>

@@ -1,0 +1,21 @@
+<launch>
+    <arg name ="robot_ip" default = "192.168.1.190"/>
+    <arg name="show_rviz" default="false" />
+    <arg name="run_octomap" default="false"/>
+
+    <!-- launch real arm -->
+    <include file="$(find lite6_moveit_config)/launch/realMove_exec.launch">
+        <arg name="robot_ip" value="$(arg robot_ip)"/>
+        <arg name="show_rviz" value="$(arg show_rviz)"/>
+        <arg name="run_octomap" value="$(arg run_octomap)"/>
+    </include>
+
+    <!-- launch transform broadcasters -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="camera_tf"
+      args="0.0 0.0 0.0  0.7071 0.0 0.7071 0.0 camera_link_base camera_link" />
+  
+    <node pkg="tf2_ros" type="static_transform_publisher" name="gripper_camera_tf"
+      args="0.07 -0.02 0.012   0.0 0.0 0.0 1.0 link_eef camera_link_base" />
+
+
+</launch>

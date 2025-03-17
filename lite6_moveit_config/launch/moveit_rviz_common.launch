@@ -24,6 +24,8 @@
   <arg name="NO_GUI_CTRL" default="false"/>
   <!-- option to show rviz or not -->
   <arg name="show_rviz" default="true" />
+    <!-- whether or not to run octomap -->
+  <arg name="run_octomap" default="true"/>
 
   <arg name="add_realsense_d435i" default="false" />
   <arg name="add_d435i_links" default="false" />
@@ -91,6 +93,7 @@
     <arg name="fake_execution" value="$(arg fake_execution)"/>
     <arg name="info" value="true"/>
     <arg name="debug" value="$(arg debug)"/>
+    <arg name="run_octomap" value="$(arg run_octomap)"/>
   </include>
 
   <!-- Run Rviz and load the default config to see the state of the move_group node -->
